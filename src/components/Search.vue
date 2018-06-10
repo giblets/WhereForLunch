@@ -47,9 +47,6 @@ export default {
               }, (error)  =>  {
                 console.log(error);
               })          
-        },
-        signOut() {
-
         }
     }
   

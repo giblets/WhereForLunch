@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <div class="container">
       <router-view/>
     </div>
