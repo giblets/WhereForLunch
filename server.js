@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 app = express();
 
-app.get('/api/zipsearch', function (req, res) {
+app.get('/api/search', function (req, res) {
 
     let yelpAPI = require('yelp-api');
     
@@ -15,8 +15,31 @@ app.get('/api/zipsearch', function (req, res) {
     let yelp = new yelpAPI(apiKey);
     
     // Set any parameters, if applicable (see API documentation for allowed params)
-    let params = [{ location: '10314', term : 'food', limit:10 }];
-    
+    // let zipcode='07003'
+    // if (req.query.zip){
+    //     zipcode=req.query.zip;
+    // }
+    //let params = [{ location: '10314', term : 'food', limit:10 }];
+    let param={};
+    if (req.query.zip){
+        param.location=req.query.zip;
+    }
+
+    if (req.query.term){
+        param.term=req.query.term;
+    }
+
+    if (req.query.limit){
+        param.limit=req.query.limit;
+    }
+
+
+        
+
+
+    //let params = [{ location: zipcode, term : 'food', limit:10, radius:40000 }];
+ 
+    let params = [param];
     // Call the endpoint
     yelp.query('businesses/search', params)
     .then(data => {
