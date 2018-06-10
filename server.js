@@ -3,8 +3,10 @@ var express = require('express');
 var path = require('path');
 var serveStatic = require('serve-static');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 app = express();
+app.use(cors())
 
 app.get('/api/search', function (req, res) {
 
@@ -32,10 +34,6 @@ app.get('/api/search', function (req, res) {
     if (req.query.limit){
         param.limit=req.query.limit;
     }
-
-
-        
-
 
     //let params = [{ location: zipcode, term : 'food', limit:10, radius:40000 }];
  
