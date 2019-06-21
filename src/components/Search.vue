@@ -15,7 +15,13 @@
       </div>
     </form>
     <ul class="list-group">
-      <li v-for="business in searchResults" class="list-group-item">{{ business.alias }}</li>      
+      <li v-for="business in searchResults" class="list-group-item">
+        <table>
+          
+        </table>
+        {{ business.alias }}
+        
+        </li>      
     </ul>
   </div>
 </template>
